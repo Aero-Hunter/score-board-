@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import { app } from "./firebasebase.conf";
+import "./App.css";
+import LoginPage from "./pages/Login/LoginPage";
+import NewUserPage from "./pages/User/NewUserPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ResetPassword from "./pages/Password/ResetPassword";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/Register" element={<NewUserPage />} />
+        <Route path="/PasswordReset" element={<ResetPassword />} />
+        <Route path="/Home" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
+    /* </div> */
   );
 }
 
